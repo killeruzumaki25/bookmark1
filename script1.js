@@ -105,9 +105,18 @@ var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
 searchBtn.addEventListener('click', () => {
   var searchInputV = searchInput.value;
   if (searchInputV !== "") {
+    // Remove previous highlights
+    elements.forEach((element) => {
+      element.innerHTML = element.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
+    });
+
     let regExp = new RegExp(searchInputV, "gi");
     elements.forEach((element) => {
-      element.innerHTML = element.innerHTML.replace(regExp, '<mark>$&</mark>');
+      // Store the previous color and add highlight
+      if (element.innerHTML.match(regExp)) {
+        previousColor = element.innerHTML;
+        element.innerHTML = element.innerHTML.replace(regExp, '<mark>$&</mark>');
+      }
     });
   }
 });
