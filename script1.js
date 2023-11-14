@@ -24,6 +24,7 @@ z-index:9999;
 top:0;
 border-radius:2%;
 overflow:hidden;
+color:black;
 }
 .searchInput{
 width:80%;
