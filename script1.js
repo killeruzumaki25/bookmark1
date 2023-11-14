@@ -17,7 +17,7 @@ scroll-behavior: smooth;
 background-color:white;
 width:35%;
 height:50vh;
-position:absolute;
+position:fixed;
 left:65%;
 display:flex;
 z-index:9999;
