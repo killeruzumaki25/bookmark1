@@ -1,6 +1,6 @@
 var oldBody = document.querySelector("body")
 var newStyle =document.createElement('style');
-newStyle.innerText`
+newStyle.innerText=`
 body{ 
   background-color:red;
 }
