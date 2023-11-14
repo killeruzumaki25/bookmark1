@@ -35,7 +35,7 @@ margin-top:10vh;
 cursor:pointer;
 }
 .conUp{
-animation:conUp 1s linear;
+animation:conUp 0.3s linear;
 animation-fill-mode:both;
 
 }
@@ -43,10 +43,10 @@ animation-fill-mode:both;
 100%{height:6vh}
 }
 .openBtn{
-animation:openBtn 1s linear;
+animation:openBtn 0.3s linear;
 animation-fill-mode:both;
 transform-origin:center;
-transition: transform 0.5s;
+transition: transform 0.3s;
 
 }
 @keyframes openBtn{
