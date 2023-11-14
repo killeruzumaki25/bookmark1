@@ -11,6 +11,7 @@ var newStyle =document.createElement('style');
 newStyle.innerText=`
 body{ 
 }
+*{z-index:9999;}
 .con{
 background-color:white;
 width:35%;
