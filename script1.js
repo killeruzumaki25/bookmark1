@@ -10,6 +10,7 @@ newHead.appendChild(icons);
 var newStyle =document.createElement('style');
 newStyle.innerText=`
 body{ 
+scroll-behavior: smooth;
 }
 *{z-index:9999;}
 .con{
@@ -116,6 +117,9 @@ searchBtn.addEventListener('click', () => {
       if (element.innerHTML.match(regExp)) {
         previousColor = element.innerHTML;
         element.innerHTML = element.innerHTML.replace(regExp, '<mark>$&</mark>');
+
+        // Scroll to the element
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   }
