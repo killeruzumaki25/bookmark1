@@ -10,7 +10,6 @@ newHead.appendChild(icons);
 var newStyle =document.createElement('style');
 newStyle.innerText=`
 body{ 
-  background-color:red;
 }
 .con{
 background-color:white;
@@ -100,13 +99,14 @@ closeBtn.addEventListener('click',()=>{
   con.classList.toggle('conUp');
   closeBtn.classList.toggle('openBtn');
 })
-
-var h1 = document.querySelector('h1');
+var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
 
 searchBtn.addEventListener('click', () => {
   var searchInputV = searchInput.value;
   if (searchInputV !== "") {
     let regExp = new RegExp(searchInputV, "gi");
-    h1.innerHTML = h1.innerHTML.replace(regExp, '<mark>$&</mark>');
+    elements.forEach((element) => {
+      element.innerHTML = element.innerHTML.replace(regExp, '<mark>$&</mark>');
+    });
   }
 });
