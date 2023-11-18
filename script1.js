@@ -1,127 +1,89 @@
-var oldBody = document.querySelector("body");
 
-var newHead = document.createElement('head');
-oldBody.appendChild(newHead);
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Bebas+Neue&family=Black+Ops+One&family=Fuggles&family=Martian+Mono:wght@200&family=Noto+Sans&family=Sometype+Mono&display=swap');
 
-var icons = document.createElement('link');
-icons.innerHTML="<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0' />";
-newHead.appendChild(icons);
-
-var newStyle =document.createElement('style');
-newStyle.innerText=`
 body{ 
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-*{z-index:9999;}
+*{
+  outline:0px solid red;
+  z-index:9999;
+  font-family: 'Black Ops One';
+}
+.mainCon > * {
+  color: orange; /* replace "orange" with your desired color */
+}
+
+
 .con{
-background-color:white;
-width:35%;
-height:50vh;
-position:fixed;
-left:65%;
-display:flex;
-z-index:9999;
-top:0;
-border-radius:2%;
-overflow:hidden;
-color:black;
+  background:rgba(0, 0, 255, 0.1);
+  border:2px solid blue;
+  width: 30%; /* changed width */
+  height: 50vh;
+  position: fixed;
+  left: 65%;
+  display: flex;
+  z-index: 9999;
+  top: 0;
+  border-radius: 2%;
+  overflow: hidden;
+  color: black;
+  flex-direction: row;
 }
-.searchInput{
-width:80%;
-height:5vh;
-font-size:120%;
-margin-top:10vh;
+
+
+.mainCon{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  align-items:center;
+  justify-content:center;
+  margin-left:5%;
+  margin-top:10%;
+  
 }
-.material-symbols-outlined{
-cursor:pointer;
+
+.closeBtn{
+  position:absolute;
+  width:10%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  left:90%;
+}
+
+.mainCon button{
+  width: 80px;
+  height: 80px;
 }
 .conUp{
-animation:conUp 0.3s linear;
+  animation:conUp 0.3s linear;
 animation-fill-mode:both;
-
 }
 @keyframes conUp{
-100%{height:6vh}
+100%{height:5vh}
 }
-.openBtn{
-animation:openBtn 0.3s linear;
-animation-fill-mode:both;
-transform-origin:center;
-transition: transform 0.3s;
 
+.wallBtn{
+ background:url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwcvQsM8-g8UhqIkYhqovspXo29w2py-MZLaIBlHXL9w6X15KhrwmQrEplNiMeVNnrkZsYznXjYFlLXwJ0a-cEI5OQv7_MUv1MF5xc434aM88hZZ-JnU-Id8EGWHOcAXCBAkEZL3VKjCWE-BtfLP7p8UoO50SZ0rOGd2OtV1gz2hDOfxd3UP6AG3TViQ/w640-h360/4k-pc-wallpaper-ai-art.webp') ;
+  background-size:cover;
 }
-@keyframes openBtn{
-  0% {
-    transform: rotate(0deg); /* Specify the initial rotation value */
-  }
-100%{transform:rotate(180deg)}
+
+.colorTheme{
+  background:linear-gradient(90deg,black,white 50%)
 }
-.closeBtn{
-height:6vh;
-width:6vh;
+.gadgetBtn{
+  background:url('https://cdn-icons-png.flaticon.com/512/1974/1974769.png');
+  background-size:cover;
 }
-.title{
-width:80%;
-position:absolute;
-top:-2vh;
-text-decoration:underline;
+.adRemove{
+  background:url('https://static.vecteezy.com/system/resources/previews/009/636/794/original/no-ads-icons-3d-illustration-icon-png.png');
+  background-size:cover;
 }
-.searchBtn{
-position:absolute;
-top:10vh;
-height:6vh;
-left:85%;
+.inspectBtn{
+  background:url('https://static.thenounproject.com/png/4199164-200.png');
+  background-size:cover;
 }
-`;  
-oldBody.appendChild(newStyle);
-
-const con = document.createElement('div');
-con.classList.add('con');
-oldBody.appendChild(con);
-
-const title = document.createElement('h2');
-title.innerText="Word find";
-title.classList.add('title')
-con.appendChild(title);
-
-const searchInput = document.createElement('input');
-searchInput.classList.add('searchInput');
-con.appendChild(searchInput);
-
-const closeBtn = document.createElement('span');
-closeBtn.classList.add("material-symbols-outlined","closeBtn")
-closeBtn.innerHTML="arrow_upward";
-con.appendChild(closeBtn);
-
-const searchBtn = document.createElement('button');
-searchBtn.innerText="Search";
-searchBtn.classList.add('searchBtn');
-con.appendChild(searchBtn);
-
-closeBtn.addEventListener('click',()=>{
-  con.classList.toggle('conUp');
-  closeBtn.classList.toggle('openBtn');
-})
-var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
-
-searchBtn.addEventListener('click', () => {
-  var searchInputV = searchInput.value;
-  if (searchInputV !== "") {
-    // Remove previous highlights
-    elements.forEach((element) => {
-      element.innerHTML = element.innerHTML.replace(/<mark>(.*?)<\/mark>/g, '$1');
-    });
-
-    let regExp = new RegExp(searchInputV, "gi");
-    elements.forEach((element) => {
-      // Store the previous color and add highlight
-      if (element.innerHTML.match(regExp)) {
-        previousColor = element.innerHTML;
-        element.innerHTML = element.innerHTML.replace(regExp, '<mark>$&</mark>');
-
-        // Scroll to the element
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    });
-  }
-});
+.projectBtn{
+  background:url('https://pngimg.com/d/github_PNG19.png');
+  background-size:cover;
+}
